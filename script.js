@@ -62,20 +62,28 @@ function optionClickEvent(e) {
 
   // Implementar condicionais para inserir mensagem e cor do placar de acordo com a pontuação.
   let mensagem = ''
+  let resultado = ''
   if (pontos < 50) {
     let elemento = document.querySelector(".scoreText2"); 
     mensagem = elemento.innerHTML = "Você respondeu " + questions.length + " questões e acertou " + correctAnswers + "."; 
+    resultado = document.querySelector(".scoreText1");
+    resultado = resultado.innerHTML = "Estude mais!";
     elemento.style.setProperty("color", "red");
-    document.querySelector(".scoreText1").style.display = "none";
+    document.querySelector(".scoreText1").style.display = "block";
   } else if (pontos < 80) {
     let elemento = document.querySelector(".scoreText2");
     mensagem = elemento.innerHTML = "Você respondeu " + questions.length + " questões e acertou " + correctAnswers + "."; 
+    resultado = document.querySelector(".scoreText1");
+    resultado = resultado.innerHTML = "Ainda pode melhorar...";
     elemento.style.setProperty("color", "yellow");
-    document.querySelector(".scoreText1").style.display = "none";
+    document.querySelector(".scoreText1").style.display = "block";
   } else {
     let elemento = document.querySelector(".scoreText2");
     mensagem = elemento.innerHTML = "Você respondeu " + questions.length + " questões e acertou " + correctAnswers + "."; 
+    resultado = document.querySelector(".scoreText1");
+    resultado = resultado.innerHTML = "Parabéns!";
     elemento.style.setProperty("color", "green");
+    document.querySelector(".scoreText1").style.display = "block";
   }
   // Inserir a pontuação em .scorePct e o texto em .scoreText2
   document.querySelector(".scorePct").innerHTML = `${pontos}%`;
